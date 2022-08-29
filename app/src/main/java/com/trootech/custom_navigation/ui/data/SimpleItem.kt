@@ -10,6 +10,10 @@ import com.trootech.custom_navigation.R
 import android.widget.TextView
 import com.trootech.custom_navigation.ui.adtr.DrawerAdapter
 
+
+/*
+* Drawer Item view create and selected item managed. Like a icon and title.
+* */
 class SimpleItem(private val icon: Drawable, private val title: String)
     : DrawerItem<SimpleItem.ViewHolder>() {
 
@@ -30,6 +34,7 @@ class SimpleItem(private val icon: Drawable, private val title: String)
         holder.title.setTextColor(if (isSelectChecked) selectedItemTextTint else normalItemTextTint)
         holder.icon.setColorFilter(if (isSelectChecked) selectedItemIconTint else normalItemIconTint)
     }
+
 
     fun withSelectedIconTint(selectedItemIconTint: Int): SimpleItem {
         this.selectedItemIconTint = selectedItemIconTint
@@ -60,4 +65,5 @@ class SimpleItem(private val icon: Drawable, private val title: String)
             title = itemView.findViewById<View>(R.id.title) as TextView
         }
     }
+
 }

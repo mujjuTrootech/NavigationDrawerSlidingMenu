@@ -26,7 +26,9 @@ import java.util.*
 class DashboardActivity : AppCompatActivity(),
     DrawerAdapter.OnItemSelectedListener {
 
+    //Drawer related title values set
     lateinit var  screenTitles: Array<String>
+    //Drawer related icon values set if needed show in navigation drawer
     lateinit var  screenIcons: Array<Drawable?>
     private var slidingRootNav: SlidingRootNav? = null
 
@@ -37,10 +39,11 @@ class DashboardActivity : AppCompatActivity(),
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
 
+        //Initialization root view and access all filed.
         slidingRootNav =  SlidingRootNavBuilder(this)
                 .withToolbarMenuToggle(toolbar)
-                .withMenuOpened(false)
-                .withContentClickableWhenMenuOpened(true)
+                .withMenuOpened(false)//If first time load screen at a time menu open required so set tru values
+                .withContentClickableWhenMenuOpened(true)//if needed after open navigation drawer back menu clicked drawer closed so values add true.
                 .withSavedState(savedInstanceState)
                 .withMenuLayout(R.layout.drawer_menu)
                 .inject();
@@ -48,8 +51,9 @@ class DashboardActivity : AppCompatActivity(),
         screenIcons = loadScreenIcons()
         screenTitles = loadScreenTitles()
 
-        val arrayList = Arrays.asList(
-            createItemFor(POS_DASHBOARD).setChecked(true),
+        //Navigation drawer set list or menu item.
+        val arrayList = listOf(
+            createItemFor(POS_DASHBOARD).setChecked(true),//checked true means screen load time first this screen open & drawer side select this item.
             createItemFor(POS_ACCOUNT),
             createItemFor(POS_MESSAGES),
             createItemFor(POS_CART),
@@ -58,18 +62,22 @@ class DashboardActivity : AppCompatActivity(),
         )
         val adapter = DrawerAdapter(arrayList)
         adapter.setListener(this)
+
         val list = findViewById<RecyclerView>(R.id.list)
         list.isNestedScrollingEnabled = false
         list.layoutManager = LinearLayoutManager(this)
         list.adapter = adapter
-        adapter.setSelected(POS_DASHBOARD)
+        adapter.setSelected(POS_DASHBOARD)//Default set dashboard if required any other so changed screen name
     }
 
+    /*
+    * Item selected time replace screen and closed drawer menu.
+    * */
     override fun onItemSelected(position: Int) {
         if (position == POS_LOGOUT) {
             finish()
         }
-        slidingRootNav!!.closeMenu()
+        slidingRootNav!!.closeMenu()//Closed drawer menu clicked managed function.
         val selectedScreen: Fragment = DashboardFragment.
         createFor(screenTitles[position])
         showFragment(selectedScreen)
@@ -81,6 +89,7 @@ class DashboardActivity : AppCompatActivity(),
             .commit()
     }
 
+    //Drawer item title and icon select and unselect color managed here. as per requirement changed this color code.
     private fun createItemFor(position: Int): SimpleItem {
         return SimpleItem(screenIcons[position]!!, screenTitles[position])
             .withIconTint(color(R.color.gray))
@@ -89,10 +98,17 @@ class DashboardActivity : AppCompatActivity(),
             .withSelectedTextTint(color(R.color.purple_700))
     }
 
+    /*
+    * Drawer arraylist title managed
+    * */
     private fun loadScreenTitles(): Array<String> {
         return resources.getStringArray(R.array.ld_activityScreenTitles)
     }
 
+
+    /*
+    * Drawer arraylist drawer managed
+    * */
     private fun loadScreenIcons(): Array<Drawable?> {
         val ta = resources.obtainTypedArray(R.array.ld_activityScreenIcons)
         val icons = arrayOfNulls<Drawable>(ta.length())

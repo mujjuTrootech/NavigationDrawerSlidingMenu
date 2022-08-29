@@ -2,6 +2,11 @@ package com.trootech.sliderlibrary.slider
 
 import androidx.customview.widget.ViewDragHelper
 
+
+/**
+ * Created by TrooTech solution on 26.08.2022.
+ */
+
 enum class SlideGravity {
     LEFT {
         override fun createHelper(): Helper {

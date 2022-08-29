@@ -4,8 +4,9 @@ import android.content.Context
 import androidx.drawerlayout.widget.DrawerLayout
 import com.trootech.sliderlibrary.slider.SlidingRootNavLayout
 
+
 /**
- * Created by TrooTech solution.
+ * Created by TrooTech solution on 26.08.2022.
  */
 class ActionBarToggleAdapter(context: Context?) : DrawerLayout(
     context!!

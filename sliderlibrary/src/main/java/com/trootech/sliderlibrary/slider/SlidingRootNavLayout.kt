@@ -14,6 +14,10 @@ import com.trootech.sliderlibrary.slider.callback.DragStateListener
 import com.trootech.sliderlibrary.slider.callback.SlidingRootNav
 import com.trootech.sliderlibrary.slider.transform.RootTransformation
 
+/**
+ * Created by TrooTech solution on 26.08.2022.
+ */
+
 class SlidingRootNavLayout(context: Context?)
     : FrameLayout(context!!), SlidingRootNav {
     private val FLING_MIN_VELOCITY: Float

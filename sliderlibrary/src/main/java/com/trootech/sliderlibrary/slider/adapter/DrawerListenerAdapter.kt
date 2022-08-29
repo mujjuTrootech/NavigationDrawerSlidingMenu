@@ -6,6 +6,10 @@ import androidx.drawerlayout.widget.DrawerLayout.DrawerListener
 import com.trootech.sliderlibrary.slider.callback.DragListener
 import com.trootech.sliderlibrary.slider.callback.DragStateListener
 
+
+/**
+ * Created by TrooTech solution on 26.08.2022.
+ */
 class DrawerListenerAdapter(private val adaptee: DrawerListener, private val drawer: View?) :
     DragListener, DragStateListener {
     override fun onDrag(progress: Float) {

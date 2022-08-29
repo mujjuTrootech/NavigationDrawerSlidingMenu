@@ -2,6 +2,10 @@ package com.trootech.sliderlibrary.slider.callback
 
 import com.trootech.sliderlibrary.slider.SlidingRootNavLayout
 
+
+/**
+ * Created by TrooTech solution on 26.08.2022.
+ */
 interface SlidingRootNav {
     val isMenuClosed: Boolean
     val isMenuOpened: Boolean
