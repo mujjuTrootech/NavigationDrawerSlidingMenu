@@ -23,6 +23,7 @@ import com.trootech.sliderlibrary.slider.transform.YTranslationTransformation
 import com.trootech.sliderlibrary.slider.utils.HiddenMenuClickConsumer
 import java.util.*
 
+
 class SlidingRootNavBuilder(private val activity: Activity) {
     private var contentView: ViewGroup? = null
     private var menuView: View? = null
