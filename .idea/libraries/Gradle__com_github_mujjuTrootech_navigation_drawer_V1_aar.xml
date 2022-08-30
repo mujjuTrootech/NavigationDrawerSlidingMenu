@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.mujjuTrootech:navigation_drawer:V1@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/90d3e71e3f11d871e62d8b2ba544bff3/transformed/navigation_drawer-V1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/90d3e71e3f11d871e62d8b2ba544bff3/transformed/navigation_drawer-V1/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/90d3e71e3f11d871e62d8b2ba544bff3/transformed/navigation_drawer-V1/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.mujjuTrootech/navigation_drawer/V1/522bd11eb0d232603a1469b3e16951d6ad0be6e5/navigation_drawer-V1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
