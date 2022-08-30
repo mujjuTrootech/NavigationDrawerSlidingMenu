@@ -37,35 +37,7 @@ dependencies {
     android:background="@android:color/white"
     android:orientation="vertical">
 
-    <Space
-        android:layout_width="wrap_content"
-        android:layout_height="90dp" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingStart="24dp"
-        android:paddingLeft="24dp"
-        android:paddingRight="24dp"
-        android:text="TrooTech Solution"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:textSize="14sp" />
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:baselineAligned="false"
-        android:orientation="horizontal"
-        android:paddingLeft="24dp"
-        android:paddingRight="24dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:text="Balance Currency"
-            android:textSize="12sp" />
-        
-    </LinearLayout>
+    .................
     <Space
         android:layout_width="wrap_content"
         android:layout_height="56dp" />
