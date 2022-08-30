@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/custom_navigation.iml" filepath="$PROJECT_DIR$/.idea/modules/custom_navigation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/custom_navigation.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/custom_navigation.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/custom_navigation.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/custom_navigation.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/custom_navigation.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/custom_navigation.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/custom_navigation.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/custom_navigation.app.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/navigationlibrary/custom_navigation.navigationlibrary.iml" filepath="$PROJECT_DIR$/.idea/modules/navigationlibrary/custom_navigation.navigationlibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/navigationlibrary/custom_navigation.navigationlibrary.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/navigationlibrary/custom_navigation.navigationlibrary.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/navigationlibrary/custom_navigation.navigationlibrary.main.iml" filepath="$PROJECT_DIR$/.idea/modules/navigationlibrary/custom_navigation.navigationlibrary.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/navigationlibrary/custom_navigation.navigationlibrary.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/navigationlibrary/custom_navigation.navigationlibrary.unitTest.iml" />
+    </modules>
+  </component>
+</project>
