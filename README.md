@@ -37,7 +37,35 @@ dependencies {
     android:background="@android:color/white"
     android:orientation="vertical">
 
-    .................
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="90dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="24dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+        android:text="TrooTech Solution"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="14sp" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:baselineAligned="false"
+        android:orientation="horizontal"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Balance Currency"
+            android:textSize="12sp" />
+        
+    </LinearLayout>
     <Space
         android:layout_width="wrap_content"
         android:layout_height="56dp" />
@@ -52,4 +80,29 @@ dependencies {
         android:layout_height="40dp" />
 
 </LinearLayout>
+```
+
+* Set the content view (for example, using setContentView in your activity).
+* Create your array.xml (example) or construct a View programmatically. Under array.xml set title and drawer image.
+
+
+-Initialization root view and access all filed.
+```
+slidingRootNav =  SlidingRootNavBuilder(this)
+                .withToolbarMenuToggle(toolbar)
+                .withMenuOpened(false)//If first time load screen at a time menu open required so set tru values
+                .withContentClickableWhenMenuOpened(true)//if needed after open navigation drawer back menu clicked drawer closed so values add true.
+                .withSavedState(savedInstanceState)
+                .withMenuLayout(R.layout.drawer_menu)
+                .inject();
+```
+
+-Menu behavior
+```
+new SlidingRootNavBuilder(this)
+.withMenuOpened(true) //Initial menu opened/closed state. Default == false
+.withMenuLocked(false) //If true, a user can't open or close the menu. Default == false.
+.withGravity(SlideGravity.LEFT) //If LEFT you can swipe a menu from left to right, if RIGHT - the direction is opposite.
+.withSavedState(savedInstanceState) //If you call the method, layout will restore its opened/closed state
+.withContentClickableWhenMenuOpened(isClickable) //Pretty self-descriptive. Builder Default == true
 ```
