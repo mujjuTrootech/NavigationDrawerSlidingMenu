@@ -1,7 +1,7 @@
 [![](https://jitpack.io/v/mujjuTrootech/navigation_drawer.svg)](https://jitpack.io/#mujjuTrootech/navigation_drawer)
 [![API](https://img.shields.io/badge/API-21%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=21)
 
-# navigation_drawer_slider
+# Navigation drawer slider
 Create custom navigation drawer with good animation. This is really good navigation slider drawer.
 
 ## Setup
@@ -120,3 +120,12 @@ public interface SlidingRootNav {
         
 -setChecked(true) =>checked true means screen load time first this screen open & drawer side select this item. Default first item selected.      
 ```
+
+#Table of Content
+-UI
+ -data
+  -DrawerItem //Main drawer managed view,data,listener
+  -SimpleItem //Drawer item holder managed like title.icon
+  -SpaceItem
+ -adapter
+  -DrawerAdapter //Slide drawer item list adapter managed
