@@ -11,7 +11,7 @@ import androidx.core.view.ViewCompat
 import androidx.customview.widget.ViewDragHelper
 import com.trootech.navilibrary.slider.callback.DragListener
 import com.trootech.navilibrary.slider.callback.DragStateListener
-import com.trootech.navilibrary.slider.callback.SlidingRootNav
+import com.trootech.navilibrary.slider.callback.DrawerSlidingRootNav
 import com.trootech.navilibrary.slider.transform.RootTransformation
 
 
@@ -19,8 +19,8 @@ import com.trootech.navilibrary.slider.transform.RootTransformation
  * Created by TrooTech solution on 26.08.2022.
  */
 
-class SlidingRootNavLayout(context: Context?)
-    : FrameLayout(context!!), SlidingRootNav {
+class DrawerRootNavLayout(context: Context?)
+    : FrameLayout(context!!), DrawerSlidingRootNav {
     private val FLING_MIN_VELOCITY: Float
     override var isMenuLocked = false
     override var isMenuClosed: Boolean=false
@@ -37,7 +37,7 @@ class SlidingRootNavLayout(context: Context?)
     private var maxDragDistance = 0
     private var dragState = 0
     private val dragHelper: ViewDragHelper
-    private var positionHelper: SlideGravity.Helper? = null
+    private var positionHelper: DrawerGravity.Helper? = null
     private val dragListeners: MutableList<DragListener>
     private val dragStateListeners: MutableList<DragStateListener>
     override fun onInterceptTouchEvent(ev: MotionEvent): Boolean {
@@ -86,7 +86,7 @@ class SlidingRootNavLayout(context: Context?)
 
     override val isMenuOpened: Boolean
         get() = !isMenuClosed
-    override val layout: SlidingRootNavLayout
+    override val layout: DrawerRootNavLayout
         get() = this
 
     override fun closeMenu() {
@@ -122,7 +122,7 @@ class SlidingRootNavLayout(context: Context?)
         this.maxDragDistance = maxDragDistance
     }
 
-    fun setGravity(gravity: SlideGravity) {
+    fun setGravity(gravity: DrawerGravity) {
         positionHelper = gravity.createHelper()
         positionHelper!!.enableEdgeTrackingOn(dragHelper)
     }

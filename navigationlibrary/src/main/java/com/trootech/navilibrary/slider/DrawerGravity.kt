@@ -7,7 +7,7 @@ import androidx.customview.widget.ViewDragHelper
  * Created by TrooTech solution on 26.08.2022.
  */
 
-enum class SlideGravity {
+enum class DrawerGravity {
     LEFT {
         override fun createHelper(): Helper {
             return LeftHelper()

@@ -1,17 +1,16 @@
 package com.trootech.navilibrary.slider.callback
 
-import com.trootech.navilibrary.slider.SlidingRootNavLayout
+import com.trootech.navilibrary.slider.DrawerRootNavLayout
 
 
 /**
  * Created by TrooTech solution on 26.08.2022.
  */
-interface SlidingRootNav {
+interface DrawerSlidingRootNav {
     val isMenuClosed: Boolean
     val isMenuOpened: Boolean
-    val layout: SlidingRootNavLayout
+    val layout: DrawerRootNavLayout
 
-    //SlidingRootNavLayout getLayout();
     var isMenuLocked: Boolean
     fun closeMenu()
     fun closeMenu(animated: Boolean)

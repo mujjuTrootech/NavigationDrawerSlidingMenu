@@ -2,7 +2,7 @@ package  com.trootech.navilibrary.slider.adapter
 
 import android.content.Context
 import androidx.drawerlayout.widget.DrawerLayout
-import com.trootech.navilibrary.slider.SlidingRootNavLayout
+import com.trootech.navilibrary.slider.DrawerRootNavLayout
 
 
 /**
@@ -11,7 +11,7 @@ import com.trootech.navilibrary.slider.SlidingRootNavLayout
 class ActionBarToggleAdapter(context: Context?) : DrawerLayout(
     context!!
 ) {
-    private var adaptee: SlidingRootNavLayout? = null
+    private var adaptee: DrawerRootNavLayout? = null
     override fun openDrawer(gravity: Int) {
         adaptee!!.openMenu()
     }
@@ -34,7 +34,7 @@ class ActionBarToggleAdapter(context: Context?) : DrawerLayout(
         }
     }
 
-    fun setAdaptee(adaptee: SlidingRootNavLayout?) {
+    fun setAdaptee(adaptee: DrawerRootNavLayout?) {
         this.adaptee = adaptee
     }
 }

@@ -1,7 +1,7 @@
 package com.trootech.navilibrary.slider.transform
 
 import android.view.View
-import com.trootech.navilibrary.slider.utils.SideNavUtils
+import com.trootech.navilibrary.slider.utils.DrawerNavUtils
 
 
 /**
@@ -9,7 +9,7 @@ import com.trootech.navilibrary.slider.utils.SideNavUtils
  */
 class YTranslationTransformation(private val endTranslation: Float) : RootTransformation {
     override fun transform(dragProgress: Float, rootView: View?) {
-        val translation = SideNavUtils.evaluate(dragProgress, START_TRANSLATION, endTranslation)
+        val translation = DrawerNavUtils.evaluate(dragProgress, START_TRANSLATION, endTranslation)
         rootView!!.translationY = translation
     }
 

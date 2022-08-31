@@ -1,7 +1,7 @@
 package com.trootech.navilibrary.slider.transform
 
 import android.view.*
-import com.trootech.navilibrary.slider.utils.SideNavUtils
+import com.trootech.navilibrary.slider.utils.DrawerNavUtils
 
 
 /**
@@ -9,7 +9,7 @@ import com.trootech.navilibrary.slider.utils.SideNavUtils
  */
 class ScaleTransformation(private val endScale: Float) : RootTransformation {
     override fun transform(dragProgress: Float, rootView: View?) {
-        val scale = SideNavUtils.evaluate(dragProgress, START_SCALE, endScale)
+        val scale = DrawerNavUtils.evaluate(dragProgress, START_SCALE, endScale)
         rootView!!.scaleX = scale
         rootView.scaleY = scale
     }

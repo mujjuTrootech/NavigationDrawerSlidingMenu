@@ -2,7 +2,7 @@ package com.trootech.navilibrary.slider.transform
 
 import android.os.Build
 import android.view.View
-import com.trootech.navilibrary.slider.utils.SideNavUtils
+import com.trootech.navilibrary.slider.utils.DrawerNavUtils
 
 
 /**
@@ -11,7 +11,7 @@ import com.trootech.navilibrary.slider.utils.SideNavUtils
 class ElevationTransformation(private val endElevation: Float) : RootTransformation {
     override fun transform(dragProgress: Float, rootView: View?) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            val elevation = SideNavUtils.evaluate(dragProgress, START_ELEVATION, endElevation)
+            val elevation = DrawerNavUtils.evaluate(dragProgress, START_ELEVATION, endElevation)
             rootView!!.elevation = elevation
         }
     }
