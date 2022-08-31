@@ -23,6 +23,7 @@ allprojects {
 //app label build.gradle
 dependencies {
     implementation 'com.github.mujjuTrootech:navigation_drawer:1.0.0'
+    //    implementation("navigationlibrary")
 }
 ```
 
