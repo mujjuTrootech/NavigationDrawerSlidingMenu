@@ -25,6 +25,8 @@ dependencies {
     implementation 'com.github.mujjuTrootech:navigation_drawer:1.0.0'
 }
 ```
+#Result Demo:
+<img src="https://user-images.githubusercontent.com/112152331/187608734-a4797c0e-6115-4a5c-8266-3320dd224d4f.gif" width="300" />
 
 ## Usage
 - Create menu.xml under your res/layout/drawer_menu
@@ -107,3 +109,5 @@ public interface SlidingRootNav {
         
 -setChecked(true) =>checked true means screen load time first this screen open & drawer side select this item. Default first item selected.      
 ```
+
+
