@@ -11,16 +11,16 @@ import com.trootech.custom_navigation.ui.data.DrawerItem
 class DrawerAdapter() :
     RecyclerView.Adapter<DrawerAdapter.ViewHolder>() {
 
-    lateinit var items: List<DrawerItem<DrawerAdapter.ViewHolder>>
-    lateinit var viewTypes: MutableMap<Class<out DrawerItem<*>>, Int>
-    lateinit var holderFactories: SparseArray<DrawerItem<*>>
-    private var listener: OnItemSelectedListener? = null
+    private lateinit var items: List<DrawerItem<ViewHolder>>
+    private lateinit var viewTypes: MutableMap<Class<out DrawerItem<*>>, Int>
+    private lateinit var holderFactories: SparseArray<DrawerItem<*>>
+    private lateinit var listener: OnItemSelectedListener
 
     /*
     *initialization arraylist with holder
     * */
     constructor(items: List<DrawerItem<*>>) : this() {
-        this.items = items as List<DrawerItem<DrawerAdapter.ViewHolder>>
+        this.items = items as List<DrawerItem<ViewHolder>>
         this.viewTypes = HashMap()
         this.holderFactories = SparseArray<DrawerItem<*>>()
         processViewTypes()
@@ -75,13 +75,12 @@ class DrawerAdapter() :
         }
         newChecked.isSelectChecked = true
         notifyItemChanged(position)
-        if (listener != null) {
-            listener!!.onItemSelected(position)
-        }
+        listener.onItemSelected(position)
+
     }
 
     fun setListener(listener: OnItemSelectedListener?) {
-        this.listener = listener
+        this.listener = listener!!
     }
 
     abstract class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),

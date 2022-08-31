@@ -29,7 +29,7 @@ dependencies {
 
 ## Result Demo:
 
-[comment]: <> (<img src="https://user-images.githubusercontent.com/112152331/187608734-a4797c0e-6115-4a5c-8266-3320dd224d4f.gif" width="300" />)
+<img src="https://user-images.githubusercontent.com/112152331/187661598-e82bf524-7891-402b-8715-9c8787c7d7c6.gif" width="300" />
 
 ## Usage
 - Create menu.xml under your res/layout/drawer_menu
@@ -67,9 +67,6 @@ dependencies {
 private var slidingRootNav: DrawerSlidingRootNav? = null
 slidingRootNav =  DrawerRootNavBuilder(this)
                 .withToolbarMenuToggle(toolbar)
-                .withMenuOpened(false)
-                .withContentClickableWhenMenuOpened(true)
-                .withGravity(DrawerGravity.LEFT)
                 .withSavedState(savedInstanceState)
                 .withMenuLayout(R.layout.drawer_menu)
                 .inject();
@@ -110,7 +107,7 @@ public interface SlidingRootNav {
 -Slide menu required list item add
 ```
  val arrayList = listOf(
-            createItemFor(POS_DASHBOARD).setChecked(true),
+            createItemFor(POS_DASHBOARD),
             createItemFor(POS_ACCOUNT),
             createItemFor(POS_MESSAGES),
             createItemFor(POS_CART),
@@ -118,8 +115,9 @@ public interface SlidingRootNav {
             createItemFor(POS_LOGOUT)
         )
         val adapter = DrawerAdapter(arrayList)
-        
--setChecked(true) =>checked true means screen load time first this screen open & drawer side select this item. Default first item selected.      
+        //If need to first time initialization Time show any position default selected. so, that time this item position pass instance of POS_DASHBOARD.
+        adapter.setSelected(POS_DASHBOARD)
+              
 ```
 
 #Table of Content

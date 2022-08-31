@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Drawer Menu</string>
+    <string name="app_name">Drawer Menus</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
@@ -8,4 +8,6 @@
 
     <string name="srn_ex_no_menu_view">No view for menu provided. You must either call .withMenuView(View) or pass a valid resource id to .withMenuLayout(int)</string>
     <string name="srn_ex_bad_content_view">Your content view must contain exactly one child. Make sure you call inject() after setContentView().</string>
+    <string name="trootech_bussiness_solution">Trootech Business Solution</string>
+    <string name="balance_currency">Balance Currency</string>
 </resources>

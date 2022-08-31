@@ -2,6 +2,7 @@ package com.trootech.navilibrary.slider
 
 import android.app.Activity
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.annotation.FloatRange
 import androidx.annotation.IntRange
@@ -22,7 +23,9 @@ import java.util.*
 /**
  * Created by TrooTech solution on 26.08.2022.
  */
+
 class DrawerRootNavBuilder(private val activity: Activity) {
+
     private var contentView: ViewGroup? = null
     private var menuView: View? = null
     private var menuLayoutRes = 0
@@ -36,6 +39,7 @@ class DrawerRootNavBuilder(private val activity: Activity) {
     private var isMenuLocked = false
     private var isContentClickableWhenMenuOpened: Boolean
     private var savedState: Bundle? = null
+
     fun withMenuView(view: View?): DrawerRootNavBuilder {
         menuView = view
         return this
@@ -209,6 +213,8 @@ class DrawerRootNavBuilder(private val activity: Activity) {
             val listenerAdapter = DrawerListenerAdapter(toggle, drawer)
             sideNav.addDragListener(listenerAdapter)
             sideNav.addDragStateListener(listenerAdapter)
+        }else{
+            Log.e("Toolbar Menu"," Not initialization")
         }
     }
 

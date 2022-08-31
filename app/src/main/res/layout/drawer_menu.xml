@@ -8,16 +8,18 @@
     <Space
         android:layout_width="wrap_content"
         android:layout_height="90dp" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingStart="24dp"
         android:paddingLeft="24dp"
         android:paddingRight="24dp"
-        android:text="TrooTech Solution"
-        android:textStyle="bold"
+        android:text="@string/trootech_bussiness_solution"
         android:textColor="@color/black"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -30,10 +32,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
-            android:text="Balance Currency"
+            android:text="@string/balance_currency"
             android:textSize="12sp" />
 
     </LinearLayout>
+
     <Space
         android:layout_width="wrap_content"
         android:layout_height="56dp" />

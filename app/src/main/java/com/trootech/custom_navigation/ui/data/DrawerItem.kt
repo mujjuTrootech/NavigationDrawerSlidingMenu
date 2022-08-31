@@ -4,7 +4,7 @@ import android.view.ViewGroup
 import com.trootech.custom_navigation.ui.adtr.DrawerAdapter
 
 
-public abstract class DrawerItem<T : DrawerAdapter.ViewHolder?> {
+abstract class DrawerItem<T : DrawerAdapter.ViewHolder?> {
 
     abstract fun createViewHolder(parent: ViewGroup?): T
     abstract fun bindViewHolder(holder: T)
@@ -18,10 +18,10 @@ public abstract class DrawerItem<T : DrawerAdapter.ViewHolder?> {
         this.isSelectChecked = isChecked!!
         return this
     }
-
-    fun  isChecked(): Boolean{
-        return isSelectChecked
-    }
+//
+//    fun  isChecked(): Boolean{
+//        return isSelectChecked
+//    }
 
     fun  isSelectable():Boolean{
         return true

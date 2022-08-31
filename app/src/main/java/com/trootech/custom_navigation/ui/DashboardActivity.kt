@@ -2,11 +2,8 @@ package com.trootech.custom_navigation.ui
 
 import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.view.MenuItem
-import android.widget.Toast
 import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
-import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
@@ -17,21 +14,16 @@ import com.trootech.custom_navigation.R
 import com.trootech.custom_navigation.ui.adtr.DrawerAdapter
 import com.trootech.custom_navigation.ui.data.SimpleItem
 import com.trootech.custom_navigation.ui.data.SpaceItem
-import com.trootech.navilibrary.slider.DrawerGravity
 import com.trootech.navilibrary.slider.DrawerRootNavBuilder
 import com.trootech.navilibrary.slider.callback.DrawerSlidingRootNav
-
-import java.util.*
 
 
 class DashboardActivity : AppCompatActivity(),
     DrawerAdapter.OnItemSelectedListener {
 
-    //Drawer related title values set
-    lateinit var screenTitles: Array<String>
-
-    //Drawer related icon values set if needed show in navigation drawer
-    lateinit var screenIcons: Array<Drawable?>
+    //Drawer related title/icon values set
+    private lateinit var screenTitles: Array<String>
+    private lateinit var screenIcons: Array<Drawable?>
 
     //Interface through root view managed. Like Drawer open/closed/layout etc managed.
     private var slidingRootNav: DrawerSlidingRootNav? = null
@@ -45,20 +37,18 @@ class DashboardActivity : AppCompatActivity(),
 
         //Initialization root view and access all filed.
         slidingRootNav = DrawerRootNavBuilder(this)
-            .withToolbarMenuToggle(toolbar)
-//            .withMenuOpened(false)//If first time load screen at a time menu open required so set tru values
-//            .withContentClickableWhenMenuOpened(true)//if needed after open navigation drawer back menu clicked drawer closed so values add true.
-//            .withGravity(DrawerGravity.LEFT)
-//            .withSavedState(savedInstanceState)
+            .withToolbarMenuToggle(toolbar) //Must be need to initialization toolbar. Without toolbar not slid menu visible.
+            .withSavedState(savedInstanceState)
             .withMenuLayout(R.layout.drawer_menu)
             .inject()
 
         screenIcons = loadScreenIcons()
         screenTitles = loadScreenTitles()
+        supportActionBar!!.title = screenTitles[0]
 
         //Navigation drawer set list or menu item.
         val arrayList = listOf(
-            createItemFor(POS_DASHBOARD).setChecked(true),//checked true means screen load time first this screen open & drawer side select this item.
+            createItemFor(POS_DASHBOARD),
             createItemFor(POS_ACCOUNT),
             createItemFor(POS_MESSAGES),
             createItemFor(POS_CART),
@@ -72,6 +62,8 @@ class DashboardActivity : AppCompatActivity(),
         list.isNestedScrollingEnabled = false
         list.layoutManager = LinearLayoutManager(this)
         list.adapter = adapter
+
+        //If need to first time initialization Time show any position default select show pass this item position.
         adapter.setSelected(POS_DASHBOARD)//Default set dashboard if required any other so changed screen name
     }
 
@@ -85,8 +77,11 @@ class DashboardActivity : AppCompatActivity(),
         if (position == POS_LOGOUT) {
             finish()
         }
+
         val selectedScreen: Fragment = DashboardFragment.createFor(screenTitles[position])
         showFragment(selectedScreen)
+
+        supportActionBar!!.title = screenTitles[position]
     }
 
     private fun showFragment(fragment: Fragment) {
