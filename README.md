@@ -70,11 +70,11 @@ slidingRootNav =  SlidingRootNavBuilder(this)
                 .inject();
 ```
 
-| Syntax                                   | Description                               |
-| -----------------------------            | -----------                               |
-| withMenuOpened(false)                    | If first time load screen at a time menu open required so set tru values                   |
-| withContentClickableWhenMenuOpened(true) | If needed after open navigation drawer back menu clicked drawer closed so values add true. |
-| withMenuLayout                           | As per required initialization menu layout                                                 |
+| Syntax                                   | Description                                                            |
+| -----------------------------            | -----------                                                            |
+| withMenuOpened(false)                    | Initialization time false means Menu closed. and true means menu open. |
+| withContentClickableWhenMenuOpened(true) | True means drawer back menu press time drawer menu closed.             |
+| withMenuLayout                           | Slide menu layout                                                      |
 
 
 -Menu behavior
