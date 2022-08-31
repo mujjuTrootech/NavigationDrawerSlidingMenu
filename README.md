@@ -28,7 +28,7 @@ dependencies {
 
 ## Result Demo:
 
-- <img src="https://user-images.githubusercontent.com/112152331/187608734-a4797c0e-6115-4a5c-8266-3320dd224d4f.gif" width="300" />
+<img src="https://user-images.githubusercontent.com/112152331/187608734-a4797c0e-6115-4a5c-8266-3320dd224d4f.gif" width="300" />
 
 ## Usage
 - Create menu.xml under your res/layout/drawer_menu
@@ -60,7 +60,6 @@ dependencies {
 * Set the content view (for example, using setContentView in your activity).
 * Create your array.xml (example) or construct a View programmatically. Under array.xml set title and drawer image.
 
-
 -Initialization root view and access all filed.
 ```
 //Interface through root view managed. Like Drawer open/closed/layout etc managed.
@@ -80,6 +79,14 @@ slidingRootNav =  DrawerRootNavBuilder(this)
 | withMenuOpened(false)                    | Initial menu opened/closed state. Default == true                                      |
 | withContentClickableWhenMenuOpened(true) | If true, a user can't open or close the menu. Default == true                          |
 | withGravity(SlideGravity.LEFT)           | If LEFT you can swipe a menu from left to right, if RIGHT - the direction is opposite. |
+
+# Initial menu opened/closed state.
+-withContentClickableWhenMenuOpened = false
+<img src="https://user-images.githubusercontent.com/112152331/187609875-f1d27e3f-581f-4ef5-84b1-4c61d214d465.gif" width="300" />
+
+# Slide Menu open/Close
+-withGravity(SlideGravity.RIGHT) //Default: Left
+<img src="https://user-images.githubusercontent.com/112152331/187611367-48be0929-a47d-4b4f-8deb-37a6025ae50a.gif" width="300" />
 
 
 -Controlling the layout using Interface

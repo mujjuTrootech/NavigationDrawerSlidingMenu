@@ -48,7 +48,7 @@ class DashboardActivity : AppCompatActivity(),
             .withToolbarMenuToggle(toolbar)
             .withMenuOpened(false)//If first time load screen at a time menu open required so set tru values
             .withContentClickableWhenMenuOpened(true)//if needed after open navigation drawer back menu clicked drawer closed so values add true.
-            .withGravity(DrawerGravity.RIGHT)
+            .withGravity(DrawerGravity.LEFT)
             .withSavedState(savedInstanceState)
             .withMenuLayout(R.layout.drawer_menu)
             .inject();
