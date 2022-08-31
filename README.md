@@ -119,14 +119,3 @@ public interface SlidingRootNav {
         adapter.setSelected(POS_DASHBOARD)
               
 ```
-
-#Table of Content
-```
--UI
- -data
-  -DrawerItem //Main drawer managed view,data,listener
-  -SimpleItem //Drawer item holder managed like title.icon
-  -SpaceItem
- -adapter
-  -DrawerAdapter //Slide drawer item list adapter managed
-```
