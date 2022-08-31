@@ -22,7 +22,7 @@ allprojects {
 }
 //app label build.gradle
 dependencies {
-    implementation 'com.github.mujjuTrootech:navigation_drawer:V1'
+    implementation 'com.github.mujjuTrootech:navigation_drawer:1.0.0'
 }
 ```
 
@@ -36,8 +36,7 @@ dependencies {
     android:layout_height="match_parent"
     android:background="@android:color/white"
     android:orientation="vertical">
-
-    ...................
+  
     <Space
         android:layout_width="wrap_content"
         android:layout_height="56dp" />
@@ -60,14 +59,23 @@ dependencies {
 
 -Initialization root view and access all filed.
 ```
+//Interface through root view managed. Like Drawer open/closed/layout etc managed.
+private var slidingRootNav: DrawerSlidingRootNav? = null
 slidingRootNav =  SlidingRootNavBuilder(this)
                 .withToolbarMenuToggle(toolbar)
-                .withMenuOpened(false)//If first time load screen at a time menu open required so set tru values
-                .withContentClickableWhenMenuOpened(true)//if needed after open navigation drawer back menu clicked drawer closed so values add true.
+                .withMenuOpened(false)
+                .withContentClickableWhenMenuOpened(true)
                 .withSavedState(savedInstanceState)
                 .withMenuLayout(R.layout.drawer_menu)
                 .inject();
 ```
+
+| Syntax                                   | Description                               |
+| -----------------------------            | -----------                               |
+| withMenuOpened(false)                    | If first time load screen at a time menu open required so set tru values                   |
+| withContentClickableWhenMenuOpened(true) | If needed after open navigation drawer back menu clicked drawer closed so values add true. |
+| withMenuLayout                           | As per required initialization menu layout                                                 |
+
 
 -Menu behavior
 ```

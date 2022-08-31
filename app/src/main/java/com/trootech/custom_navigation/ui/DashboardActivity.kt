@@ -14,12 +14,12 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.trootech.custom_navigation.R
-
 import com.trootech.custom_navigation.ui.adtr.DrawerAdapter
 import com.trootech.custom_navigation.ui.data.SimpleItem
 import com.trootech.custom_navigation.ui.data.SpaceItem
-import com.trootech.sliderlibrary.slider.SlidingRootNavBuilder
-import com.trootech.sliderlibrary.slider.callback.SlidingRootNav
+import com.trootech.navilibrary.slider.DrawerRootNavBuilder
+import com.trootech.navilibrary.slider.callback.DrawerSlidingRootNav
+
 import java.util.*
 
 
@@ -30,7 +30,9 @@ class DashboardActivity : AppCompatActivity(),
     lateinit var  screenTitles: Array<String>
     //Drawer related icon values set if needed show in navigation drawer
     lateinit var  screenIcons: Array<Drawable?>
-    private var slidingRootNav: SlidingRootNav? = null
+
+    //Interface through root view managed. Like Drawer open/closed/layout etc managed.
+    private var slidingRootNav: DrawerSlidingRootNav? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +42,7 @@ class DashboardActivity : AppCompatActivity(),
         setSupportActionBar(toolbar)
 
         //Initialization root view and access all filed.
-        slidingRootNav =  SlidingRootNavBuilder(this)
+        slidingRootNav =  DrawerRootNavBuilder(this)
                 .withToolbarMenuToggle(toolbar)
                 .withMenuOpened(false)//If first time load screen at a time menu open required so set tru values
                 .withContentClickableWhenMenuOpened(true)//if needed after open navigation drawer back menu clicked drawer closed so values add true.
