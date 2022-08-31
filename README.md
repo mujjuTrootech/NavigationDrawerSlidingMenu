@@ -125,9 +125,9 @@ public interface SlidingRootNav {
 ```
 -UI
  -data
-  --DrawerItem //Main drawer managed view,data,listener
-  --SimpleItem //Drawer item holder managed like title.icon
-  --SpaceItem
+  -DrawerItem //Main drawer managed view,data,listener
+  -SimpleItem //Drawer item holder managed like title.icon
+  -SpaceItem
  -adapter
-  --DrawerAdapter //Slide drawer item list adapter managed
+  -DrawerAdapter //Slide drawer item list adapter managed
 ```
