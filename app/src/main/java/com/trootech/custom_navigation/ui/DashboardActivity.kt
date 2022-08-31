@@ -46,12 +46,12 @@ class DashboardActivity : AppCompatActivity(),
         //Initialization root view and access all filed.
         slidingRootNav = DrawerRootNavBuilder(this)
             .withToolbarMenuToggle(toolbar)
-            .withMenuOpened(false)//If first time load screen at a time menu open required so set tru values
-            .withContentClickableWhenMenuOpened(true)//if needed after open navigation drawer back menu clicked drawer closed so values add true.
-            .withGravity(DrawerGravity.LEFT)
-            .withSavedState(savedInstanceState)
+//            .withMenuOpened(false)//If first time load screen at a time menu open required so set tru values
+//            .withContentClickableWhenMenuOpened(true)//if needed after open navigation drawer back menu clicked drawer closed so values add true.
+//            .withGravity(DrawerGravity.LEFT)
+//            .withSavedState(savedInstanceState)
             .withMenuLayout(R.layout.drawer_menu)
-            .inject();
+            .inject()
 
         screenIcons = loadScreenIcons()
         screenTitles = loadScreenTitles()
