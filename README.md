@@ -82,10 +82,12 @@ slidingRootNav =  DrawerRootNavBuilder(this)
 
 # Initial menu opened/closed state.
 -withContentClickableWhenMenuOpened = false
+
 <img src="https://user-images.githubusercontent.com/112152331/187609875-f1d27e3f-581f-4ef5-84b1-4c61d214d465.gif" width="300" />
 
 # Slide Menu open/Close
 -withGravity(SlideGravity.RIGHT) //Default: Left
+
 <img src="https://user-images.githubusercontent.com/112152331/187611367-48be0929-a47d-4b4f-8deb-37a6025ae50a.gif" width="300" />
 
 
