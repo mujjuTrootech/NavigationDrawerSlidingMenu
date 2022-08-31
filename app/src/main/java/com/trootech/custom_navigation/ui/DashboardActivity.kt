@@ -17,6 +17,7 @@ import com.trootech.custom_navigation.R
 import com.trootech.custom_navigation.ui.adtr.DrawerAdapter
 import com.trootech.custom_navigation.ui.data.SimpleItem
 import com.trootech.custom_navigation.ui.data.SpaceItem
+import com.trootech.navilibrary.slider.DrawerGravity
 import com.trootech.navilibrary.slider.DrawerRootNavBuilder
 import com.trootech.navilibrary.slider.callback.DrawerSlidingRootNav
 
@@ -27,9 +28,10 @@ class DashboardActivity : AppCompatActivity(),
     DrawerAdapter.OnItemSelectedListener {
 
     //Drawer related title values set
-    lateinit var  screenTitles: Array<String>
+    lateinit var screenTitles: Array<String>
+
     //Drawer related icon values set if needed show in navigation drawer
-    lateinit var  screenIcons: Array<Drawable?>
+    lateinit var screenIcons: Array<Drawable?>
 
     //Interface through root view managed. Like Drawer open/closed/layout etc managed.
     private var slidingRootNav: DrawerSlidingRootNav? = null
@@ -42,13 +44,14 @@ class DashboardActivity : AppCompatActivity(),
         setSupportActionBar(toolbar)
 
         //Initialization root view and access all filed.
-        slidingRootNav =  DrawerRootNavBuilder(this)
-                .withToolbarMenuToggle(toolbar)
-                .withMenuOpened(false)//If first time load screen at a time menu open required so set tru values
-                .withContentClickableWhenMenuOpened(true)//if needed after open navigation drawer back menu clicked drawer closed so values add true.
-                .withSavedState(savedInstanceState)
-                .withMenuLayout(R.layout.drawer_menu)
-                .inject();
+        slidingRootNav = DrawerRootNavBuilder(this)
+            .withToolbarMenuToggle(toolbar)
+            .withMenuOpened(false)//If first time load screen at a time menu open required so set tru values
+            .withContentClickableWhenMenuOpened(true)//if needed after open navigation drawer back menu clicked drawer closed so values add true.
+            .withGravity(DrawerGravity.LEFT)
+            .withSavedState(savedInstanceState)
+            .withMenuLayout(R.layout.drawer_menu)
+            .inject();
 
         screenIcons = loadScreenIcons()
         screenTitles = loadScreenTitles()
@@ -59,7 +62,7 @@ class DashboardActivity : AppCompatActivity(),
             createItemFor(POS_ACCOUNT),
             createItemFor(POS_MESSAGES),
             createItemFor(POS_CART),
-            SpaceItem(48),
+            SpaceItem(48),//Space changed as per item list through required
             createItemFor(POS_LOGOUT)
         )
         val adapter = DrawerAdapter(arrayList)
@@ -76,12 +79,13 @@ class DashboardActivity : AppCompatActivity(),
     * Item selected time replace screen and closed drawer menu.
     * */
     override fun onItemSelected(position: Int) {
+        slidingRootNav!!.closeMenu()//Closed drawer menu clicked managed function.
+
+        //As per required position wise fragment view changed.
         if (position == POS_LOGOUT) {
             finish()
         }
-        slidingRootNav!!.closeMenu()//Closed drawer menu clicked managed function.
-        val selectedScreen: Fragment = DashboardFragment.
-        createFor(screenTitles[position])
+        val selectedScreen: Fragment = DashboardFragment.createFor(screenTitles[position])
         showFragment(selectedScreen)
     }
 
@@ -136,8 +140,6 @@ class DashboardActivity : AppCompatActivity(),
         private const val POS_CART = 3
         private const val POS_LOGOUT = 5
     }
-
-
 
 
 }

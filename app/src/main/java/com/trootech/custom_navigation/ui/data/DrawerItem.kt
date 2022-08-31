@@ -6,11 +6,8 @@ import com.trootech.custom_navigation.ui.adtr.DrawerAdapter
 
 public abstract class DrawerItem<T : DrawerAdapter.ViewHolder?> {
 
-
-
     abstract fun createViewHolder(parent: ViewGroup?): T
     abstract fun bindViewHolder(holder: T)
-
 
     var isSelectChecked:Boolean = false
     /*
@@ -26,10 +23,7 @@ public abstract class DrawerItem<T : DrawerAdapter.ViewHolder?> {
         return isSelectChecked
     }
 
-
     fun  isSelectable():Boolean{
         return true
     }
-
-
 }

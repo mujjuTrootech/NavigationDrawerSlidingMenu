@@ -16,14 +16,15 @@ class DrawerAdapter() :
     lateinit var holderFactories: SparseArray<DrawerItem<*>>
     private var listener: OnItemSelectedListener? = null
 
-
-    constructor(items: List<DrawerItem<*>>): this() {
+    /*
+    *initialization arraylist with holder
+    * */
+    constructor(items: List<DrawerItem<*>>) : this() {
         this.items = items as List<DrawerItem<DrawerAdapter.ViewHolder>>
         this.viewTypes = HashMap()
         this.holderFactories = SparseArray<DrawerItem<*>>()
         processViewTypes()
     }
-
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -34,7 +35,7 @@ class DrawerAdapter() :
 
     @SuppressWarnings("unchecked")
     override fun onBindViewHolder(@NonNull holder: ViewHolder, position: Int) {
-       items[position].bindViewHolder(holder)
+        items[position].bindViewHolder(holder)
     }
 
     override fun getItemCount(): Int {
@@ -56,6 +57,9 @@ class DrawerAdapter() :
         }
     }
 
+    /*
+    * Slide menu selected item only notify
+    * */
     fun setSelected(position: Int) {
         val newChecked = items[position]
         if (!newChecked.isSelectable()) {
@@ -80,7 +84,8 @@ class DrawerAdapter() :
         this.listener = listener
     }
 
-    abstract class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
+    abstract class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
+        View.OnClickListener {
         var adapter: DrawerAdapter? = null
 
         override fun onClick(v: View) {

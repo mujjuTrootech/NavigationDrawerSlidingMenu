@@ -10,7 +10,6 @@ import com.trootech.custom_navigation.R
 import android.widget.TextView
 import com.trootech.custom_navigation.ui.adtr.DrawerAdapter
 
-
 /*
 * Drawer Item view create and selected item managed. Like a icon and title.
 * */

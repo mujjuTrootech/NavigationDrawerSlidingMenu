@@ -61,28 +61,49 @@ dependencies {
 ```
 //Interface through root view managed. Like Drawer open/closed/layout etc managed.
 private var slidingRootNav: DrawerSlidingRootNav? = null
-slidingRootNav =  SlidingRootNavBuilder(this)
+slidingRootNav =  DrawerRootNavBuilder(this)
                 .withToolbarMenuToggle(toolbar)
                 .withMenuOpened(false)
                 .withContentClickableWhenMenuOpened(true)
+                .withGravity(DrawerGravity.LEFT)
                 .withSavedState(savedInstanceState)
                 .withMenuLayout(R.layout.drawer_menu)
                 .inject();
 ```
 
-| Syntax                                   | Description                                                            |
-| -----------------------------            | -----------                                                            |
-| withMenuOpened(false)                    | Initialization time false means Menu closed. and true means menu open. |
-| withContentClickableWhenMenuOpened(true) | True means drawer back menu press time drawer menu closed.             |
-| withMenuLayout                           | Slide menu layout                                                      |
+| Syntax                                   | Description                                                                            |
+| -----------------------------            | -----------                                                                            |
+| withMenuOpened(false)                    | Initial menu opened/closed state. Default == true                                      |
+| withContentClickableWhenMenuOpened(true) | If true, a user can't open or close the menu. Default == true                          |
+| withGravity(SlideGravity.LEFT)           | If LEFT you can swipe a menu from left to right, if RIGHT - the direction is opposite. |
 
 
--Menu behavior
+-Controlling the layout using Interface
 ```
-new SlidingRootNavBuilder(this)
-.withMenuOpened(true) //Initial menu opened/closed state. Default == false
-.withMenuLocked(false) //If true, a user can't open or close the menu. Default == false.
-.withGravity(SlideGravity.LEFT) //If LEFT you can swipe a menu from left to right, if RIGHT - the direction is opposite.
-.withSavedState(savedInstanceState) //If you call the method, layout will restore its opened/closed state
-.withContentClickableWhenMenuOpened(isClickable) //Pretty self-descriptive. Builder Default == true
+public interface SlidingRootNav {
+    boolean isMenuClosed();
+    boolean isMenuOpened();
+    boolean isMenuLocked();
+    void closeMenu();
+    void closeMenu(boolean animated);
+    void openMenu();
+    void openMenu(boolean animated);
+    void setMenuLocked(boolean locked);
+    SlidingRootNavLayout getLayout(); //If for some reason you need to work directly with layout - you can
+}
+```
+
+-Slide menu required list item add
+```
+ val arrayList = listOf(
+            createItemFor(POS_DASHBOARD).setChecked(true),
+            createItemFor(POS_ACCOUNT),
+            createItemFor(POS_MESSAGES),
+            createItemFor(POS_CART),
+            SpaceItem(48),
+            createItemFor(POS_LOGOUT)
+        )
+        val adapter = DrawerAdapter(arrayList)
+        
+-setChecked(true) =>checked true means screen load time first this screen open & drawer side select this item. Default first item selected.      
 ```
