@@ -17,7 +17,6 @@ import com.trootech.custom_navigation.ui.data.SpaceItem
 import com.trootech.navilibrary.slider.DrawerRootNavBuilder
 import com.trootech.navilibrary.slider.callback.DrawerSlidingRootNav
 
-
 class DashboardActivity : AppCompatActivity(),
     DrawerAdapter.OnItemSelectedListener {
 
@@ -41,6 +40,7 @@ class DashboardActivity : AppCompatActivity(),
             .withSavedState(savedInstanceState)
             .withMenuLayout(R.layout.drawer_menu)
             .inject()
+
 
         screenIcons = loadScreenIcons()
         screenTitles = loadScreenTitles()
@@ -105,7 +105,6 @@ class DashboardActivity : AppCompatActivity(),
     private fun loadScreenTitles(): Array<String> {
         return resources.getStringArray(R.array.ld_activityScreenTitles)
     }
-
 
     /*
     * Drawer arraylist drawer managed
