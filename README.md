@@ -1,4 +1,4 @@
-[![](https://jitpack.io/v/mujjuTrootech/navigation_drawer.svg)](https://jitpack.io/#mujjuTrootech/navigation_drawer)
+[![](https://jitpack.io/v/trootech/NavigationDrawerSlidingMenu.svg)](https://jitpack.io/#trootech/NavigationDrawerSlidingMenu)
 [![API](https://img.shields.io/badge/API-21%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=21)
 
 # Navigation drawer slider
@@ -22,8 +22,7 @@ allprojects {
 }
 //app label build.gradle
 dependencies {
-    implementation 'com.github.mujjuTrootech:navigation_drawer:1.0.0'
-    //    implementation("navigationlibrary")
+    implementation 'com.github.trootech:NavigationDrawerSlidingMenu:1.0.0'
 }
 ```
 
