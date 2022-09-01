@@ -1,7 +1,11 @@
 package com.trootech.custom_navigation.ui
 
+
 import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.view.View
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
 import androidx.appcompat.app.AppCompatActivity
@@ -14,8 +18,10 @@ import com.trootech.custom_navigation.R
 import com.trootech.custom_navigation.ui.adtr.DrawerAdapter
 import com.trootech.custom_navigation.ui.data.SimpleItem
 import com.trootech.custom_navigation.ui.data.SpaceItem
+import com.trootech.navilibrary.slider.DrawerGravity
 import com.trootech.navilibrary.slider.DrawerRootNavBuilder
 import com.trootech.navilibrary.slider.callback.DrawerSlidingRootNav
+
 
 class DashboardActivity : AppCompatActivity(),
     DrawerAdapter.OnItemSelectedListener {
@@ -27,24 +33,62 @@ class DashboardActivity : AppCompatActivity(),
     //Interface through root view managed. Like Drawer open/closed/layout etc managed.
     private var slidingRootNav: DrawerSlidingRootNav? = null
 
+    private lateinit var  ivMenuLeft: ImageView
+    private lateinit var  ivMenuRight: ImageView
+    private lateinit var tvTitle: TextView
+    private lateinit var toolbar:Toolbar
+
+    private var isLeftRight: Boolean = false //Default:false -Left, true-Right
+    private var gravityView: DrawerGravity = DrawerGravity.LEFT //Default:LEFT
+    private var gravityLayout: Int = R.layout.drawer_menu_left
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
 
-        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        toolbar = findViewById(R.id.toolbar)
+        ivMenuLeft=findViewById(R.id.ivMenuLeft)
+        ivMenuRight=findViewById(R.id.ivMenuRight)
+        tvTitle=findViewById(R.id.tvTitle)
+
         setSupportActionBar(toolbar)
+
+        if(supportActionBar != null) {
+            supportActionBar?.setDisplayHomeAsUpEnabled(false) //Menu hide
+            supportActionBar!!.setDisplayShowTitleEnabled(false) //Header Title
+            supportActionBar?.setHomeButtonEnabled(false)
+            supportActionBar?.setDisplayShowHomeEnabled(false)
+            ivMenuRight.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.ic_menu))
+            ivMenuLeft.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.ic_menu))
+        }
+
+        setListener()
+
+        //Set per required menu open right/left so managed here
+        isLeftRight=false
+        if (isLeftRight) {
+            gravityView = DrawerGravity.RIGHT
+            gravityLayout = R.layout.drawer_menu_right
+            ivMenuRight.visibility=View.VISIBLE
+            ivMenuLeft.visibility=View.GONE
+        } else {
+            gravityView = DrawerGravity.LEFT
+            gravityLayout = R.layout.drawer_menu_left
+            ivMenuRight.visibility=View.GONE
+            ivMenuLeft.visibility=View.VISIBLE
+        }
 
         //Initialization root view and access all filed.
         slidingRootNav = DrawerRootNavBuilder(this)
-            .withToolbarMenuToggle(toolbar) //Must be need to initialization toolbar. Without toolbar not slid menu visible.
+            //.withToolbarMenuToggle(toolbar) //Must be need to initialization toolbar. Without toolbar not slid menu visible.
+            .withGravity(gravityView)
             .withSavedState(savedInstanceState)
-            .withMenuLayout(R.layout.drawer_menu)
+            .withMenuLayout(gravityLayout)
             .inject()
-
 
         screenIcons = loadScreenIcons()
         screenTitles = loadScreenTitles()
-        supportActionBar!!.title = screenTitles[0] //Set title name as per visible view
+        tvTitle.text = screenTitles[0] //Set title name as per visible view
 
         //Navigation drawer set list or menu item.
         val arrayList = listOf(
@@ -67,11 +111,37 @@ class DashboardActivity : AppCompatActivity(),
         adapter.setSelected(POS_DASHBOARD)//Default set dashboard if required any other so changed screen name
     }
 
+    private fun setListener() {
+        ivMenuLeft.setOnClickListener {
+            openClosedDrawer()
+        }
+
+        ivMenuRight.setOnClickListener {
+            openClosedDrawer()
+        }
+    }
+
+    private fun openClosedDrawer() {
+        if (slidingRootNav!!.isMenuClosed) {
+            slidingRootNav!!.openMenu()
+            ivMenuLeft.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.ic_back))
+            ivMenuRight.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.ic_back))
+        }
+        else {
+            slidingRootNav!!.closeMenu()
+            ivMenuLeft.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.ic_menu))
+            ivMenuRight.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.ic_menu))
+        }
+    }
+
+
     /*
     * Item selected time replace screen and closed drawer menu.
     * */
     override fun onItemSelected(position: Int) {
         slidingRootNav!!.closeMenu()//Closed drawer menu clicked managed function.
+        ivMenuLeft.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.ic_menu))
+        ivMenuRight.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.ic_menu))
 
         //As per required position wise fragment view changed.
         if (position == POS_LOGOUT) {
@@ -81,7 +151,7 @@ class DashboardActivity : AppCompatActivity(),
         val selectedScreen: Fragment = DashboardFragment.createFor(screenTitles[position])
         showFragment(selectedScreen)
 
-        supportActionBar!!.title = screenTitles[position]
+        tvTitle.text = screenTitles[position]
     }
 
     private fun showFragment(fragment: Fragment) {

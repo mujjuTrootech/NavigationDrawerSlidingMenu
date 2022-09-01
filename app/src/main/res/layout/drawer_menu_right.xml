@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@android:color/white"
+    android:layout_height="match_parent">
+
+   <LinearLayout
+       android:layout_alignParentEnd="true"
+       android:orientation="vertical"
+       android:layout_width="wrap_content"
+       android:layout_height="match_parent">
+       <Space
+           android:layout_width="wrap_content"
+           android:layout_height="90dp" />
+
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:paddingStart="24dp"
+           android:paddingLeft="24dp"
+           android:paddingRight="24dp"
+           android:text="@string/trootech_bussiness_solution"
+           android:textColor="@color/black"
+           android:textSize="14sp"
+           android:textStyle="bold" />
+
+       <LinearLayout
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:baselineAligned="false"
+           android:orientation="horizontal"
+           android:paddingLeft="24dp"
+           android:paddingRight="24dp">
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="6dp"
+               android:text="@string/balance_currency"
+               android:textSize="12sp" />
+
+       </LinearLayout>
+
+       <Space
+           android:layout_width="wrap_content"
+           android:layout_height="56dp" />
+
+       <androidx.recyclerview.widget.RecyclerView
+           android:id="@+id/list"
+           android:layout_width="240dp"
+           android:layout_height="wrap_content" />
+
+       <Space
+           android:layout_width="wrap_content"
+           android:layout_height="40dp" />
+   </LinearLayout>
+
+</RelativeLayout>

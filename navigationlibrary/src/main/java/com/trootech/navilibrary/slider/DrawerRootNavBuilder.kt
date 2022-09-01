@@ -133,6 +133,7 @@ class DrawerRootNavBuilder(private val activity: Activity) {
     }
 
     fun inject(): DrawerSlidingRootNav {
+
         val contentView = getContentView()
         val oldRoot = contentView!!.getChildAt(0)
         contentView.removeAllViews()

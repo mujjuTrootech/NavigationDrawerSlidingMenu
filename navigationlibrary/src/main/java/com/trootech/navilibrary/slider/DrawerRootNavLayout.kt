@@ -24,13 +24,11 @@ class DrawerRootNavLayout(context: Context?)
     private val FLING_MIN_VELOCITY: Float
     override var isMenuLocked = false
     override var isMenuClosed: Boolean=false
-       // private set
+
     private var isContentClickableWhenMenuOpened = false
     private var rootTransformation: RootTransformation? = null
 
-
-   var rootViews:View?=null
-    //as getRootView(): View!
+    var rootViews:View?=null
 
     var dragProgress: Float
         private set
