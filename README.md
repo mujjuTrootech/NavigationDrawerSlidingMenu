@@ -114,3 +114,9 @@ public interface SlidingRootNav {
         adapter.setSelected(POS_DASHBOARD)
               
 ```
+
+#Left/Right side menu open/closed
+
+<img src="https://user-images.githubusercontent.com/112152331/187896105-86bfd4e4-900c-44f1-90bc-f90d49505b24.gif" width="300" />
+
+
