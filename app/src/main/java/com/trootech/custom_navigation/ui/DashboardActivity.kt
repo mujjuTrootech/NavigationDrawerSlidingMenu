@@ -44,7 +44,7 @@ class DashboardActivity : AppCompatActivity(),
 
         screenIcons = loadScreenIcons()
         screenTitles = loadScreenTitles()
-        supportActionBar!!.title = screenTitles[0]
+        supportActionBar!!.title = screenTitles[0] //Set title name as per visible view
 
         //Navigation drawer set list or menu item.
         val arrayList = listOf(

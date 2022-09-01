@@ -29,7 +29,7 @@ dependencies {
 
 ## Result Demo:
 
-<img src="https://user-images.githubusercontent.com/112152331/187661598-e82bf524-7891-402b-8715-9c8787c7d7c6.gif" width="300" />
+<img src="https://user-images.githubusercontent.com/112152331/187843772-d3a519e4-b337-4826-b3a3-7d07d4bbd172.gif" width="300" />
 
 ## Usage
 - Create menu.xml under your res/layout/drawer_menu
