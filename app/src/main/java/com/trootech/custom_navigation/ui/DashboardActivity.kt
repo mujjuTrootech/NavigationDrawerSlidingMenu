@@ -33,10 +33,10 @@ class DashboardActivity : AppCompatActivity(),
     //Interface through root view managed. Like Drawer open/closed/layout etc managed.
     private var slidingRootNav: DrawerSlidingRootNav? = null
 
-    private lateinit var  ivMenuLeft: ImageView
-    private lateinit var  ivMenuRight: ImageView
+    private lateinit var ivMenuLeft: ImageView
+    private lateinit var ivMenuRight: ImageView
     private lateinit var tvTitle: TextView
-    private lateinit var toolbar:Toolbar
+    private lateinit var toolbar: Toolbar
 
     private var isLeftRight: Boolean = false //Default:false -Left, true-Right
     private var gravityView: DrawerGravity = DrawerGravity.LEFT //Default:LEFT
@@ -47,35 +47,35 @@ class DashboardActivity : AppCompatActivity(),
         setContentView(R.layout.activity_dashboard)
 
         toolbar = findViewById(R.id.toolbar)
-        ivMenuLeft=findViewById(R.id.ivMenuLeft)
-        ivMenuRight=findViewById(R.id.ivMenuRight)
-        tvTitle=findViewById(R.id.tvTitle)
+        ivMenuLeft = findViewById(R.id.ivMenuLeft)
+        ivMenuRight = findViewById(R.id.ivMenuRight)
+        tvTitle = findViewById(R.id.tvTitle)
 
         setSupportActionBar(toolbar)
 
-        if(supportActionBar != null) {
+        if (supportActionBar != null) {
             supportActionBar?.setDisplayHomeAsUpEnabled(false) //Menu hide
             supportActionBar!!.setDisplayShowTitleEnabled(false) //Header Title
             supportActionBar?.setHomeButtonEnabled(false)
             supportActionBar?.setDisplayShowHomeEnabled(false)
-            ivMenuRight.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.ic_menu))
-            ivMenuLeft.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.ic_menu))
+            ivMenuRight.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_menu))
+            ivMenuLeft.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_menu))
         }
 
         setListener()
 
         //Set per required menu open right/left so managed here
-        isLeftRight=false
+        isLeftRight = true
         if (isLeftRight) {
             gravityView = DrawerGravity.RIGHT
             gravityLayout = R.layout.drawer_menu_right
-            ivMenuRight.visibility=View.VISIBLE
-            ivMenuLeft.visibility=View.GONE
+            ivMenuRight.visibility = View.VISIBLE
+            ivMenuLeft.visibility = View.GONE
         } else {
             gravityView = DrawerGravity.LEFT
             gravityLayout = R.layout.drawer_menu_left
-            ivMenuRight.visibility=View.GONE
-            ivMenuLeft.visibility=View.VISIBLE
+            ivMenuRight.visibility = View.GONE
+            ivMenuLeft.visibility = View.VISIBLE
         }
 
         //Initialization root view and access all filed.
@@ -124,13 +124,12 @@ class DashboardActivity : AppCompatActivity(),
     private fun openClosedDrawer() {
         if (slidingRootNav!!.isMenuClosed) {
             slidingRootNav!!.openMenu()
-            ivMenuLeft.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.ic_back))
-            ivMenuRight.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.ic_back))
-        }
-        else {
+            ivMenuLeft.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_back))
+            ivMenuRight.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_back))
+        } else {
             slidingRootNav!!.closeMenu()
-            ivMenuLeft.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.ic_menu))
-            ivMenuRight.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.ic_menu))
+            ivMenuLeft.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_menu))
+            ivMenuRight.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_menu))
         }
     }
 
@@ -140,8 +139,8 @@ class DashboardActivity : AppCompatActivity(),
     * */
     override fun onItemSelected(position: Int) {
         slidingRootNav!!.closeMenu()//Closed drawer menu clicked managed function.
-        ivMenuLeft.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.ic_menu))
-        ivMenuRight.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.ic_menu))
+        ivMenuLeft.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_menu))
+        ivMenuRight.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_menu))
 
         //As per required position wise fragment view changed.
         if (position == POS_LOGOUT) {
